@@ -34,7 +34,7 @@
 		String _userID = rs.getString("USERID");
 		String _userPW = rs.getString("USERPW");
 		String _userName = rs.getString("USERNAME");
-		session.setAttribute("name","장성호");
+		session.setAttribute("userName",_userName);
 		response.sendRedirect("login_ok.jsp");
 		//System.out.println(_userID+"==="+_userPW);
 		

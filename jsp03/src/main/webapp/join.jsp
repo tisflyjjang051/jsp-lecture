@@ -15,14 +15,23 @@
 			<label><span>패스워드</span><input type="password" name="userPW"></label>
 		</div>
 		<div>
-			이름 추가하기....   userName, gender, grade
+			<label><span>이름 : </span><input type="text" name="userName"></label>
 		</div>
 		<div>
-			성별 추가하기.... radio 처리하기
+			<span>성별 : </span> 
+			남자<input type="radio" name="gender" value="남자">&nbsp;&nbsp;
+			여자<input type="radio" name="gender" value="여자">
 		</div>
 		<div>
-			학력 추가하기.... select 처리하기  (초졸(초졸), 중졸(중졸), 대졸(대졸), 대학원졸(대학원졸))
+			<span>학력 : </span> <select name="grade">
+				<option value="elementary">초졸</option>
+				<option value="middle">중졸</option>
+				<option value="high">고졸</option>
+				<option value="univ">대졸</option>
+				<option value="master">대학원졸</option>
+			</select>
 		</div>
+
 		<div>
 			<button>회원가입</button>
 			<button type="reset">취소</button>

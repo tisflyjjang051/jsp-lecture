@@ -6,6 +6,9 @@
 <%
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
+	String userName = (String) request.getParameter("userName");
+	String gender = (String) request.getParameter("gender");
+	String grade = (String) request.getParameter("grade");
 	//System.out.println(userID+"==="+userPW);
 	
 	String driver = "oracle.jdbc.OracleDriver";
@@ -16,13 +19,17 @@
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	
-	String sql = "INSERT INTO MEMBER (USERID,USERPW) VALUES (?,?)";
+	String sql = "INSERT INTO MEMBER  VALUES (?,?,?,?,?)";
 	
 	Class.forName(driver);
 	conn = DriverManager.getConnection(url, id, pw);
 	pstmt = conn.prepareStatement(sql);
 	pstmt.setString(1, userID);
 	pstmt.setString(2, userPW);
+	pstmt.setString(3, userName);
+	pstmt.setString(4, gender);
+	pstmt.setString(5, grade);
+
 	int result = pstmt.executeUpdate();
 	System.out.println(result);
 	if(result > 0) {
