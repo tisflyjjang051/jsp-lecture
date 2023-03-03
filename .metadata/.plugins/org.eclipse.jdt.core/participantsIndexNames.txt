@@ -1,3 +1,5 @@
 INDEX VERSION 1.131
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\875471413.index
 \jsp01\src\main\java
+C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1739913649.index
+\jsp02\src\main\java
