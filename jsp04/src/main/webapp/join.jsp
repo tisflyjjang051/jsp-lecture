@@ -4,6 +4,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>회원가입</title>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="./js/jquery-3.6.3.min.js"></script>
   </head>
   <body>
     <header id="header" class="header">
@@ -81,9 +83,38 @@
         </tbody>
       </table>
       <div>
-        <button>회원가입</button>
+        <button class="btn confirm">회원가입</button>
         <button type="reset">취소</button>
       </div>
     </form>
+    <script>
+      //jQuery alias  $
+      const userID = document.querySelector("#userID");
+      const jUserID = $("#userID"); // wrapping 함수
+      console.log(userID); // 정확하게 선택된 돔 결과만 보여준다.
+      console.log(jUserID); // jQuery로 래핑한 결과를 보여준다.
+      $(".confirm").on("click", function () {
+        if ($("#userID").val() === "") {
+          alert("아이디를 입력해주세요.");
+          $("#userID").focus();
+          return false;
+        }
+        if ($("#userPW").val() === "") {
+          alert("패스워드를 입력해주세요.");
+          $("#userPW").focus();
+          return false;
+        }
+        if ($("#userPWConfirm").val() === "") {
+          alert("패스워드 확인을 해주세요.");
+          $("#userPWConfirm").focus();
+          return false;
+        }
+        if ($("#userPWConfirm").val() !== $("#userPW").val()) {
+          alert("패스워드가 같지 않습니다.");
+          $("#userPWConfirm").focus();
+          return false;
+        }
+      });
+    </script>
   </body>
 </html>
