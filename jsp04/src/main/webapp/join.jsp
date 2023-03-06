@@ -16,7 +16,7 @@
         <h2 class="blind">global navigation</h2>
         <ul class="list">
           <li><a href="">회원가입</a></li>
-          <li><a href="">로그인</a></li>
+          <li><a href="login.jsp">로그인</a></li>
         </ul>
       </nav>
     </header>
