@@ -34,7 +34,16 @@
 		if(rs.next()) {
 			//response.sendRedirect("list.jsp");
 			String userName = rs.getString("USERNAME");
-			out.println("<script>alert('"+userName+"님 로그인 되었습니다.');</script>");
+			String userId = rs.getString("USERID");
+			session.setAttribute("userName", userName);
+			session.setAttribute("userId", userId);
+			response.sendRedirect("index.jsp");
+			//out.println("<script>alert('"+userName+"님 로그인 되었습니다.');</script>");
+			
+			//1.pageContext
+			//2.requset
+			//3.session
+			//4.application
 		}
 	} catch (Exception e) {
 		e.printStackTrace();

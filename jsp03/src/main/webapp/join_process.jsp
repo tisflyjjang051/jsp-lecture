@@ -5,12 +5,13 @@
     pageEncoding="UTF-8"%>
 <%
 	String userID = request.getParameter("userID");
+
 	String userPW = request.getParameter("userPW");
 	String userName = (String) request.getParameter("userName");
 	String gender = (String) request.getParameter("gender");
 	String grade = (String) request.getParameter("grade");
 	//System.out.println(userID+"==="+userPW);
-	
+
 	String driver = "oracle.jdbc.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "TIS001";

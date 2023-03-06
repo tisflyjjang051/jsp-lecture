@@ -45,6 +45,8 @@
 		if(result > 0 ) {
 			//response.sendRedirect("list.jsp");
 			out.println("<script>alert('회원가입이 되었습니다.');</script>");
+		} else {
+			out.println("<script>alert('뭔가 잘못된거 같아요...');</script>");
 		}
 	} catch (Exception e) {
 		e.printStackTrace();

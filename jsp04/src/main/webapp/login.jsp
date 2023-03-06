@@ -1,24 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>LOGIN</title>
-<script src="./js/jquery-3.6.3.min.js"></script>
-</head>
-<header id="header" class="header">
-      <h1 id="logo">
-        <a href="">JJANG'S MEDIA LAB</a>
-      </h1>
-      <nav id="gnb">
-        <h2 class="blind">global navigation</h2>
-        <ul class="list">
-          <li><a href="">회원가입</a></li>
-          <li><a href="login.jsp">로그인</a></li>
-        </ul>
-      </nav>
-    </header>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="./include/header.jsp" %>
     <form action="loginProcess.jsp" method="POST">
       <table>
         <colgroup>
@@ -61,5 +42,4 @@
         }
       });
     </script>
-  </body>
-</html>
+  <%@ include file="./include/footer.jsp" %>
