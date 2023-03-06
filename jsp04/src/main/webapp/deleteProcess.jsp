@@ -1,4 +1,3 @@
-<%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
@@ -6,9 +5,11 @@
     pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String userID = request.getParameter("userID");
+	String userID = (String) session.getAttribute("userId");
 	String userPW = request.getParameter("userPW");
-
+	
+	System.out.println(userID+"==="+userPW);
+	
 	String driver = "oracle.jdbc.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";
 	String id = "TIS001";
@@ -16,9 +17,8 @@
 	
 	Connection conn = null;
 	PreparedStatement pstmt = null;
-	ResultSet rs = null;
 	
-	String sql = "SELECT * FROM MEMBER02 WHERE USERID = ? AND USERPW = ?";
+	String sql = "DELETE FROM MEMBER02 WHERE USERID = ? AND USERPW = ?";
 	
 	try {
 		//1. 드라이버 찾기
@@ -30,17 +30,13 @@
 		pstmt.setString(1,userID);
 		pstmt.setString(2,userPW);
 
-		rs = pstmt.executeQuery();
-		if(rs.next()) {
+		int result = pstmt.executeUpdate();
+		if(result > 0 ) {
 			//response.sendRedirect("list.jsp");
-			String userName = rs.getString("USERNAME");
-			String userId = rs.getString("USERID");
-			session.setAttribute("userName", userName);
-			session.setAttribute("userId", userId);
-			response.sendRedirect("index.jsp");
-			//out.println("<script>alert('"+userName+"님 로그인 되었습니다.');</script>");
+			out.println("<script>alert('회원탈퇴 되었습니다.');location.href='index.jsp';</script>");
+			session.invalidate();
 		} else {
-			out.println("<script>alert('아이디 비밀번호를 확인해 주세요.'); history.back();</script>");
+			out.println("<script>alert('뭔가 잘못된거 같아요...');history.back();</script>");
 		}
 	} catch (Exception e) {
 		e.printStackTrace();
