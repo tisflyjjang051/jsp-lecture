@@ -20,7 +20,7 @@
         </ul>
       </nav>
     </header>
-    <form action="" method="GET">
+    <form action="joinProcess.jsp" method="POST">
       <table>
         <colgroup>
           <col style="width: 20%" />
