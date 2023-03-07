@@ -28,7 +28,20 @@
   </head>
   <body>
     <!-- prettier-ignore -->
-    <% String popupMode="on"; %>
+    <% 
+    	String popupMode="on";
+    	Cookie cookies[] = request.getCookies();
+    	if(cookies!=null) {
+    		for(int i=0;i<cookies.length;i++){
+    			String cookieName = cookies[i].getName();
+    			String cookieValue = cookies[i].getValue();
+    			if(cookieName.equals("popupCookie")) {
+    				popupMode=cookieValue;
+    			}
+    		}
+    	}
+		    
+    %>
     <% if(popupMode.equals("on")) { %>
     <div class="popup">
       <h2>공지사항</h2>
@@ -40,21 +53,23 @@
         <p>공지사항입니다.</p>
       </div>
       <div>
-        <form action="" method="GET">
-          <input type="checkbox" name="oneday" value="1" /> 오늘 하루 이창을 열지 않기
-          <button class="btn oneday">닫기</button>
-        </form>
+        <input type="checkbox" id="onedayCheck" value="1" /> 오늘 하루 이창을 열지 않기
+        <button class="btn oneday">닫기</button>
       </div>
     </div>
     <% } %>
     <script>
-      const sendData = { ondeday: 1 };
       $(".oneday").on("click", function () {
+    	console.log($("#onedayCheck").is(":checked"));
+    	
+    	//const isChecked = $("#onedayCheck").is(":checked") ? 1 : 0 ;
+    	const isChecked = $("#onedayCheck:checked").val() ;
+    	console.log(isChecked);
         $(".popup").hide();
         $.ajax({
           url: "popupModeProcess.jsp",
           type: "GET",
-          data: sendData,
+          data: { oneday: isChecked },
           success: function (response) {
             console.log(response);
           },

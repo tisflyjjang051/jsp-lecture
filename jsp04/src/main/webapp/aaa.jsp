@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-String num = request.getParameter("oneday");
-System.out.println(num);
+	String num = request.getParameter("oneday");
+	System.out.println(num);
 %>

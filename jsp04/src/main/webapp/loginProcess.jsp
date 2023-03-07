@@ -8,6 +8,17 @@
 	request.setCharacterEncoding("UTF-8");
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
+	String saveId = request.getParameter("saveId");
+	
+	if(saveId!=null && saveId.equals("yes")) {
+		Cookie saveIdCookie = new Cookie("saveIdCookie",userID);
+		saveIdCookie.setPath(request.getContextPath());
+		saveIdCookie.setMaxAge(60*60*24*30);
+		response.addCookie(saveIdCookie);
+	}
+	
+	System.out.println(userID+"==="+userPW+"==="+saveId);
+	
 
 	String driver = "oracle.jdbc.OracleDriver";
 	String url = "jdbc:oracle:thin:@localhost:1521:xe";

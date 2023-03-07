@@ -1,22 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-	String cookieValue = "";  // 반환 값
-	
-	Cookie[] cookies = request.getCookies();
-	if (cookies != null) {
-	    for (Cookie c : cookies) {
-	        String cookieName = c.getName();
-	        if (cookieName.equals("loginId")) {
-	            cookieValue = c.getValue();  // 반환 값 갱신
-	        }
-	    }
-	} 
-	String cookieCheck ="";
-	if (!cookieValue.equals("")) {
-	    cookieCheck = "checked";
+	String loginId = "";
+	String isChecked = ""; 
+	Cookie cookies[] = request.getCookies();
+	if(cookies!=null) {
+		for(Cookie cookie:cookies) {
+			String cookieName = cookie.getName();
+			String cookieValue = cookie.getValue();
+			if(cookieName.equals("saveIdCookie")) {
+				loginId = cookieValue;
+			}
+		}
+	}
+	if(!loginId.equals("")) {
+		isChecked =  "checked";
 	}
 %>
-
 <%@ include file="./include/header.jsp" %>
     <form action="loginProcess.jsp" method="POST">
       <table>
@@ -28,8 +27,8 @@
           <tr>
             <th>아이디</th>
             <td>
-              <input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요." />
-              <input type="checkbox" name="saveId" value="yes" <%= cookieCheck %>>
+              <input type="text" name="userID" id="userID" value="<%= loginId %>" placeholder="아이디를 입력하세요." />
+              <div><input type="checkbox" name="saveId" value="yes" <%= isChecked %> ><span>아이디 기억하기</span></div>
             </td>
           </tr>
           <tr>

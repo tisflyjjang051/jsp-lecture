@@ -104,7 +104,7 @@
 					Note: The pattern used is equivalent to using pattern="common" -->
 				<Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-			<Context docBase="C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp03" path="/jsp03" reloadable="true" source="org.eclipse.jst.jee.server:jsp03"/><Context docBase="C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp04" path="/jsp04" reloadable="true" source="org.eclipse.jst.jee.server:jsp04"/></Host>
+			<Context docBase="C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp04" path="/jsp04" reloadable="true" source="org.eclipse.jst.jee.server:jsp04"/></Host>
 		</Engine>
 	</Service>
 </Server>
