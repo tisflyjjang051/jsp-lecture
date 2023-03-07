@@ -1,4 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+	String cookieValue = "";  // 반환 값
+	
+	Cookie[] cookies = request.getCookies();
+	if (cookies != null) {
+	    for (Cookie c : cookies) {
+	        String cookieName = c.getName();
+	        if (cookieName.equals("loginId")) {
+	            cookieValue = c.getValue();  // 반환 값 갱신
+	        }
+	    }
+	} 
+	String cookieCheck ="";
+	if (!cookieValue.equals("")) {
+	    cookieCheck = "checked";
+	}
+%>
+
 <%@ include file="./include/header.jsp" %>
     <form action="loginProcess.jsp" method="POST">
       <table>
@@ -11,6 +29,7 @@
             <th>아이디</th>
             <td>
               <input type="text" name="userID" id="userID" placeholder="아이디를 입력하세요." />
+              <input type="checkbox" name="saveId" value="yes" <%= cookieCheck %>>
             </td>
           </tr>
           <tr>
