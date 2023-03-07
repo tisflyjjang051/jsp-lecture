@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Insert title here</title>
+    <script src="./js/jquery-3.6.3.min.js"></script>
     <style>
       .popup {
         position: fixed;
@@ -26,6 +27,9 @@
     </style>
   </head>
   <body>
+    <!-- prettier-ignore -->
+    <% String popupMode="on"; %>
+    <% if(popupMode.equals("on")) { %>
     <div class="popup">
       <h2>공지사항</h2>
       <div class="contents">
@@ -37,10 +41,26 @@
       </div>
       <div>
         <form action="" method="GET">
-          <input type="checkbox" name="oneday" /> 오늘 하루 이창을 열지 않기
-          <button>닫기</button>
+          <input type="checkbox" name="oneday" value="1" /> 오늘 하루 이창을 열지 않기
+          <button class="btn oneday">닫기</button>
         </form>
       </div>
     </div>
+    <% } %>
+    <script>
+      const sendData = { ondeday: 1 };
+      $(".oneday").on("click", function () {
+        $(".popup").hide();
+        $.ajax({
+          url: "popupModeProcess.jsp",
+          type: "GET",
+          data: sendData,
+          success: function (response) {
+            console.log(response);
+          },
+        });
+        return false;
+      });
+    </script>
   </body>
 </html>
