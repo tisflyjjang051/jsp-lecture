@@ -1,3 +1,4 @@
+<%@page import="com.jjang051.utils.CookieManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
 	String loginId = "";
@@ -12,6 +13,8 @@
 			}
 		}
 	}
+	String temp = CookieManager.readCookie(request, "saveIdCookie");
+	System.out.println(temp);
 	if(!loginId.equals("")) {
 		isChecked =  "checked";
 	}
