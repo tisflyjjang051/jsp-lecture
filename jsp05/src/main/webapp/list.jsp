@@ -42,6 +42,9 @@
 	}
 %>
 </ul>
+<div>
+	<a href="write.jsp">글쓰기</a>
+</div>
 </body>
 </html>
 <%
