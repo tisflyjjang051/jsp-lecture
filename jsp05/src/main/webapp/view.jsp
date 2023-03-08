@@ -75,7 +75,7 @@
 	</table>
 	<div>
 		<a href="write.jsp">글쓰기</a>
-		<a href="modify.jsp">수정</a>
+		<a href="modify.jsp?idx=<%= idx %>">수정</a>
 		<a href="delete.jsp?idx=<%= idx %>">삭제</a>
 	</div>
 </body>
