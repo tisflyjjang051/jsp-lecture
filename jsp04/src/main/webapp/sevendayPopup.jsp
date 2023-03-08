@@ -61,10 +61,14 @@
     			url:"popupModeProcess02.jsp",
     			type:"GET",
     			data:{sevenDay:isChecked},
-    			//dataType:"html",  // 서버에서 오는 응답의 파일 타입을 미리 지정해 두기...
+    			dataType:"text",  // 서버에서 오는 응답의 파일 타입을 미리 지정해 두기...
     			//contentType:"",   // data 속성의 값 (즉 request)의 타입을 지정 
     			success:function(response){
-    				console.log(response);
+    				console.log(response.trim());
+    				console.log(response.trim()=="장성호");
+    			},
+    			fail:function(response){
+    				console.log("bbb");
     			}
     		});
     	})
