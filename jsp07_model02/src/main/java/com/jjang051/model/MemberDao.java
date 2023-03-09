@@ -86,6 +86,28 @@ public class MemberDao {
 		}
 		return memberDto;
 	}
+
+	public MemberDto getLoggedMemberInfo(MemberDto memberDto) {
+		MemberDto loggedMemberInfo = null;
+		getConnection();
+		String sql = "SELECT * FROM MEMBER02 WHERE USERID = ? AND USERPW = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberDto.getUserId());
+			pstmt.setString(2, memberDto.getUserPw());
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				loggedMemberInfo = new MemberDto();
+				loggedMemberInfo.setUserId(rs.getString("userId"));
+				loggedMemberInfo.setUserName(rs.getString("userName"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return loggedMemberInfo;
+	}
 }
 
 

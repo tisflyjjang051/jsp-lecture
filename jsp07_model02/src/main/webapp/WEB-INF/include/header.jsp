@@ -28,16 +28,16 @@
         <h2 class="hidden">global navigation</h2>
         <% if(loggedUserID==null) { %>
         <ul class="list">
-          <li><a href="../member/join.jsp">회원가입</a></li>
-          <li><a href="../member/login.jsp">로그인</a></li>
-          <li><a href="../board/list.jsp">게시판</a></li>
+          <li><a href="../member/join">회원가입</a></li>
+          <li><a href="../member/login">로그인</a></li>
+          <li><a href="../board/list">게시판</a></li>
         </ul>
         <% } else { %>
         
         <ul class="list">
-          <li><a href="../member/info.jsp"><%=loggedUserName %>님</a></li>
-          <li><a href="../member/logout.jsp">로그아웃</a></li>
-          <li><a href="../board/list.jsp">게시판</a></li>
+          <li><a href="../member/info"><%=loggedUserName %>님</a></li>
+          <li><a href="../member/logout">로그아웃</a></li>
+          <li><a href="../board/list">게시판</a></li>
         </ul>
        <%  } %>
       </nav>
