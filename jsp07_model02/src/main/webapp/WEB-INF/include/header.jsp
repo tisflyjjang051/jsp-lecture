@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/layout.css">
     
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   </head>
   <body>
     <header id="header" class="header">

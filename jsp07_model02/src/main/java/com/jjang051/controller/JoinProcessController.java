@@ -12,7 +12,7 @@ import com.jjang051.model.MemberDto;
 import com.jjang051.utils.ScriptWriter;
 
 
-@WebServlet("/JoinProcess")
+@WebServlet("/member/joinProcess")
 public class JoinProcessController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public JoinProcessController() {
@@ -42,11 +42,14 @@ public class JoinProcessController extends HttpServlet {
 		memberDto.setZipCode(zipCode);
 		memberDto.setAddres(address);
 		
+		memberDto.toString();
+		
+		
 		
 		MemberDao memberDao = new MemberDao();
 		int result = memberDao.insertMember(memberDto);
 		if(result>0) {
-			ScriptWriter.alertAndNext(response, "회원가입 성공", "성공했을때 가야할 주소");
+			ScriptWriter.alertAndNext(response, "회원가입 성공", "/");
 		} else  {
 			ScriptWriter.alertAndBack(response, "회원가입 실패 잠시후 다시 시도해 주세요.");
 		}
