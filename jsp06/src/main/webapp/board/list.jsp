@@ -24,11 +24,12 @@
 %>
 
 <%@ include file="../include/header.jsp" %>
-
+<form action="deleteAll.jsp" method="GET">
 <ul>
 <%
 	while(rs.next()) {
 		out.println("<li>");
+		out.println("<span><input type='checkbox' name='boardDeleteCheck' value='"+rs.getInt("no")+"'></span>");
 		out.println("<span>"+rs.getInt("no")+"</span>");
 		out.println("<span><a href='view.jsp?idx="+rs.getInt("no")+"'>"+rs.getString("subject")+"</a></span>");
 		out.println("<span>"+rs.getString("userName")+"</span>");
@@ -37,9 +38,12 @@
 	}
 %>
 </ul>
+
 <div>
 	<a href="write.jsp">글쓰기</a>
+	<button class="btn delete">삭제</button>
 </div>
+</form>
 <%@ include file="../include/footer.jsp" %>
 <%
    	} catch (Exception e) {
