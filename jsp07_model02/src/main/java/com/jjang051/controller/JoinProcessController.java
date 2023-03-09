@@ -40,7 +40,7 @@ public class JoinProcessController extends HttpServlet {
 		memberDto.setUserEmail(userEmail);
 		memberDto.setUserHp(userHp);
 		memberDto.setZipCode(zipCode);
-		memberDto.setAddres(address);
+		memberDto.setAddress(address);
 		
 		memberDto.toString();
 		

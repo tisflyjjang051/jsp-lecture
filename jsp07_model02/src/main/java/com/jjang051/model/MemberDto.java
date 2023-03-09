@@ -8,14 +8,14 @@ public class MemberDto {
 	private String UserHp;
 	private String userEmail;
 	private int zipCode;
-	private String addres;
+	private String address;
 	private String regDate;
 	
 	public MemberDto() {
 		super();
 	}
 	public MemberDto(int no, String userId, String userPw, String userName, String userHp, String userEmail,
-			int zipCode, String addres, String regDate) {
+			int zipCode, String address, String regDate) {
 		super();
 		this.no = no;
 		this.userId = userId;
@@ -24,7 +24,7 @@ public class MemberDto {
 		UserHp = userHp;
 		this.userEmail = userEmail;
 		this.zipCode = zipCode;
-		this.addres = addres;
+		this.address = address;
 		this.regDate = regDate;
 	}
 	public int getNo() {
@@ -69,11 +69,11 @@ public class MemberDto {
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
 	}
-	public String getAddres() {
-		return addres;
+	public String getAddress() {
+		return address;
 	}
-	public void setAddres(String addres) {
-		this.addres = addres;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getRegDate() {
 		return regDate;
@@ -84,7 +84,7 @@ public class MemberDto {
 	@Override
 	public String toString() {
 		return "MemberDto [no=" + no + ", userId=" + userId + ", userPw=" + userPw + ", userName=" + userName
-				+ ", UserHp=" + UserHp + ", userEmail=" + userEmail + ", zipCode=" + zipCode + ", addres=" + addres
+				+ ", UserHp=" + UserHp + ", userEmail=" + userEmail + ", zipCode=" + zipCode + ", address=" + address
 				+ ", regDate=" + regDate + "]";
 	}
 	

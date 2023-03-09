@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
+@WebServlet("/index/")
 public class IndexController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +19,7 @@ public class IndexController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/index/index.jsp");
 		dispatcher.forward(request, response);
 	}
 }

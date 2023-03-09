@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="refresh" content="0;url=./index/"></meta>
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>INDEX</h1>
-	<a href="./member/join">회원가입</a>
+
 </body>
 </html>
