@@ -18,7 +18,6 @@ public class JoinProcessController extends HttpServlet {
     public JoinProcessController() {
         super();
     }
-
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		String userId = request.getParameter("userId");

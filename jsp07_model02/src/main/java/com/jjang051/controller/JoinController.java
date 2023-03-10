@@ -18,6 +18,5 @@ public class JoinController extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher dispatcher =  request.getRequestDispatcher("/WEB-INF/member/join.jsp");
 		dispatcher.forward(request, response);
-		
 	}
 }
