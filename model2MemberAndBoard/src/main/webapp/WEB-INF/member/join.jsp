@@ -77,6 +77,7 @@
 				},
 				success : function(response) {
 					console.log(response);
+					/*
 					if (parseInt(response.trim()) === 0) {
 						alert("쓸 수 있는 아이디 입니다.");
 						$("#userID").attr("readonly", true);
@@ -84,8 +85,17 @@
 						alert("쓸 수 없는 아이디 입니다.");
 						$("#userID").val("");
 						$("#userID").focus();
-
 					}
+					*/
+					if (parseInt(response.count) === 0) {
+						alert("쓸 수 있는 아이디 입니다.");
+						$("#userID").attr("readonly", true);
+					} else {
+						alert("쓸 수 없는 아이디 입니다.");
+						$("#userID").val("");
+						$("#userID").focus();
+					}
+					
 				},
 				fail : function(error) {
 					console.log(error);
