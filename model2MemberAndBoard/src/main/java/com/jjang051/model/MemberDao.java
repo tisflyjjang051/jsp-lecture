@@ -106,7 +106,25 @@ public class MemberDao {
 		}
 		return loggedMember;
 	}
-	
+	public int idCheck(String userId) {
+		int result = 0;
+		getConnection();
+		String sql = "SELECT COUNT(*) AS COUNT "
+				+ "FROM MEMBER02 WHERE USERID = ?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = rs.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
 }
 
 

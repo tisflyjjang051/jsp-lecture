@@ -10,19 +10,19 @@
 		<tbody>
 			<tr>
 				<th>아이디</th>
-				<td><input type="text" name="userID" id="userID"
+				<td><input type="text" name="userId" id="userId"
 					placeholder="아이디를 입력하세요." />
 					<button class="btn idCheck">아이디 중복확인</button></td>
 			</tr>
 			<tr>
 				<th>패스워드</th>
-				<td><input type="password" name="userPW" id="userPW"
+				<td><input type="password" name="userPw" id="userPw"
 					placeholder="패스워드를 입력하세요." /></td>
 			</tr>
 			<tr>
 				<th>패스워드확인</th>
-				<td><input type="password" name="userPWConfirm"
-					id="userPWConfirm" placeholder="패스워드를 입력하세요." /></td>
+				<td><input type="password" name="userPwConfirm"
+					id="userPwConfirm" placeholder="패스워드를 입력하세요." /></td>
 			</tr>
 			<tr>
 				<th>이름</th>
@@ -43,7 +43,7 @@
 				<th>주소</th>
 				<td>
 					<div>
-						<input type="text" name="userZipcode" id="userZipcode"
+						<input type="text" name="zipCode" id="zipCode"
 							placeholder="우편번호를 입력하세요." readonly />
 						<button class="btn zipCode">우편번호</button>
 					</div>
@@ -68,12 +68,12 @@
 <script>
 	//jQuery alias  $
 	$(".idCheck").on("click", function() {
-		const sendUserID = $("#userID").val();
-		if (sendUserID !== "") {
+		const sendUserId = $("#userId").val();
+		if (sendUserId !== "") {
 			$.ajax({
-				url : "idCheck.jsp",
+				url : "idCheck",
 				data : {
-					userID : sendUserID
+					userId : sendUserId
 				},
 				success : function(response) {
 					console.log(response);

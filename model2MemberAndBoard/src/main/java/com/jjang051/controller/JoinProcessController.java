@@ -12,23 +12,26 @@ import com.jjang051.model.MemberDto;
 import com.jjang051.utils.ScriptWriter;
 
 @WebServlet("/member/joinProcess")
-public class JoinProcess extends HttpServlet {
+public class JoinProcessController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public JoinProcess() {
+    public JoinProcessController() {
         super();
     }
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MemberDao memberDao = new MemberDao();
 		MemberDto memberDto = new MemberDto();
-		memberDto.setUserId("qwer");
-		memberDto.setUserPw("1234");
-		memberDto.setUserName("강백호");
-		memberDto.setUserEmail("kang@hanmail.net");
-		memberDto.setUserHp("01011112222");
-		memberDto.setZipCode(12345);
-		memberDto.setAddress("우리집");
+		String address =  request.getParameter("userAddr01")+
+				" "+request.getParameter("userAddr02")+
+				"/"+request.getParameter("userAddr03");
+		memberDto.setUserId(request.getParameter("userId"));
+		memberDto.setUserPw(request.getParameter("userPw"));
+		memberDto.setUserName(request.getParameter("userName"));
+		memberDto.setUserEmail(request.getParameter("userEmail"));
+		memberDto.setUserHp(request.getParameter("userHp"));
+		memberDto.setZipCode(Integer.parseInt(request.getParameter("zipCode")));
+		memberDto.setAddress(address);
 		int result = memberDao.insertMember(memberDto);
 		if(result>0) {
 			ScriptWriter.alertAndNext(response, "회원가입 되었습니다.", "http://www.daum.net");
@@ -37,6 +40,11 @@ public class JoinProcess extends HttpServlet {
 		}
 	}
 }
+ 
+
+
+
+
 
 
 
