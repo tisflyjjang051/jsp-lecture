@@ -47,3 +47,5 @@ C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclips
 \model2MemberAndBoard\src\main\java
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1829813389.index
 \jsp07_model02_do\src\main\java
+C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\110707918.index
+\model2MemberAndBoard\src\main\java

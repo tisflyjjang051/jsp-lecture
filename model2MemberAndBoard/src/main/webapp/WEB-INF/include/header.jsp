@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%
-	String loggedUserName = (String)session.getAttribute("userName");
-	String loggedUserID = (String)session.getAttribute("userId");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
   <head>
@@ -21,21 +18,27 @@
   <body>
     <header id="header" class="header">
       <h1 id="logo">
-        <a href="index.jsp">JJANG'S MEDIA LAB</a>
+        <a href="../index/">JJANG'S MEDIA LAB</a>
       </h1>
       <nav id="gnb">
         <h2 class="hidden">global navigation</h2>
-        <% if(loggedUserID==null) { %>
-        <ul class="list">
-          <li><a href="join.jsp">회원가입</a></li>
-          <li><a href="login.jsp">로그인</a></li>
-        </ul>
-        <% } else { %>
-        
-        <ul class="list">
-          <li><a href="info.jsp"><%=loggedUserName %>님</a></li>
-          <li><a href="logout.jsp">로그아웃</a></li>
-        </ul>
-       <%  } %>
+        <c:choose>
+			<c:when test="${empty loggedMember}">
+		        <ul class="list">
+		          <li><a href="../member/join">회원가입</a></li>
+		          <li><a href="../member/login">로그인</a></li>
+		        </ul>
+			</c:when>
+			<c:otherwise>
+		        <ul class="list">
+		          <li><a href="../member/info">${loggedName}님</a></li>
+		          <li><a href="../member/logout">로그아웃</a></li>
+		        </ul>
+	        </c:otherwise>
+       	</c:choose>
       </nav>
     </header>
+    
+    
+    
+    
