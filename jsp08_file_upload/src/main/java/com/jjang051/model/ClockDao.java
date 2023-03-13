@@ -52,6 +52,7 @@ public class ClockDao {
 			pstmt.setInt(4,clockDto.getPrice());
 			pstmt.setString(5,clockDto.getClockImg());
 			pstmt.setString(6,clockDto.getClockRealImg());
+			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
