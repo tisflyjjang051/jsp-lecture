@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ClockDao {
 	private String driver = "oracle.jdbc.OracleDriver";
@@ -59,6 +60,31 @@ public class ClockDao {
 			close();
 		}
 		return result;
+	}
+	public ArrayList<ClockDto> getAllClock() {
+		ArrayList<ClockDto> clockList = new ArrayList<>();
+		try {
+			getConnection();
+			String sql = "SELECT * FROM CLOCK";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClockDto clockDto = new ClockDto();
+				clockDto.setNo(rs.getInt("no"));
+				clockDto.setTitle(rs.getString("title"));
+				clockDto.setCategory(rs.getString("category"));
+				clockDto.setDepth(rs.getInt("depth"));
+				clockDto.setPrice(rs.getInt("price"));
+				clockDto.setClockImg(rs.getString("clockImg"));
+				clockDto.setClockRealImg(rs.getString("clockRealImg"));
+				clockList.add(clockDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return clockList;
 	}
 }
 
