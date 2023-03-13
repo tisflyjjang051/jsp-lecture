@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<form action="./joinProcess" method="POST">
+<form action="./joinProcess" method="POST" enctype="multipart/form-data">
 	<table>
 		<colgroup>
 			<col style="width: 20%" />
@@ -55,6 +55,10 @@
 						<input type="text" name="userAddr02" id="userAddr02"
 							placeholder="상세주소" /> <input type="text" name="userAddr03"
 							id="userAddr03" placeholder="참고사항" />
+					</div>
+					<div>
+						<input type="file" name="thumb" id="thumb"
+							placeholder="프로필 사진을 올려주세요." /> 
 					</div>
 				</td>
 			</tr>

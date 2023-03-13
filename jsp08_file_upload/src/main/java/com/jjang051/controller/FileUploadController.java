@@ -17,7 +17,7 @@ import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
-@WebServlet("/fileupload")
+@WebServlet("/board/fileupload")
 public class FileUploadController extends HttpServlet {
 	public FileUploadController() {
 		super();
@@ -37,6 +37,8 @@ public class FileUploadController extends HttpServlet {
 		String savePath = "uploadClock";
 		ServletContext context = this.getServletContext();
 		String realPath =  context.getRealPath(savePath);
+		
+		System.out.println(realPath);
 		
 		File dir = new File(realPath);
 		if(!dir.exists()) {
@@ -63,7 +65,7 @@ public class FileUploadController extends HttpServlet {
 		clockDto.setClockRealImg(renameFile);
 		int result = clockDao.insertClock(clockDto);
 		if(result>0) {
-			ScriptWriter.alertAndNext(response, "파일 업로드 성공", "/");
+			ScriptWriter.alertAndNext(response, "파일 업로드 성공", "../index/");
 		} else {
 			ScriptWriter.alertAndBack(response, "파일 업로드 실패");
 		}

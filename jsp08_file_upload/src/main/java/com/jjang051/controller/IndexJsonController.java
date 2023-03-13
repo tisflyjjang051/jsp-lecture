@@ -10,29 +10,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.google.gson.Gson;
 import com.jjang051.model.ClockDao;
 import com.jjang051.model.ClockDto;
 
-@WebServlet(urlPatterns = {"/index/*"})
-public class IndexController extends HttpServlet {
+@WebServlet("/index/clockJson")
+public class IndexJsonController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    public IndexJsonController() {
+        super();
+    }
 
-	public IndexController() {
-		super();
-	}
-
-	protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("/WEB-INF/index/index.jsp");
-		ArrayList<ClockDto> clockList = new ArrayList<>();
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ArrayList<ClockDto> clockList = null;
 		ClockDao clockDao = new ClockDao();
 		clockList = clockDao.getAllClock();
-		request.setAttribute("clockList", clockList);
+		
+		Gson gson = new Gson();
+		String clockJsonList = gson.toJson(clockList);
+		
+		request.setAttribute("clockJsonList", clockJsonList);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/index_json.jsp");
 		dispatcher.forward(request, response);
 	}
 }
-
 
 
 

@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <!-- <form action="fileupload" method="POST" enctype="application/x-www-form-urlencoded"> -->
-<form action="fileupload" method="POST" enctype="multipart/form-data">
+<form action="../board/fileupload" method="POST" enctype="multipart/form-data">
 	<table>
 		<colgroup>
 			<col style="width: 20%" />

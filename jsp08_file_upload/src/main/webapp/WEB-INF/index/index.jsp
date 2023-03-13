@@ -4,14 +4,15 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 	<h1>INDEX</h1>
-	<%
-		ArrayList<ClockDto> clockList = (ArrayList<ClockDto>)request.getAttribute("clockList");
-	%>
-	<img src="/jsp08_file_upload/uploadClock/<%= clockList.get(0).getClockRealImg() %>">
-	<img src="../../uploadClock/<%= clockList.get(1).getClockRealImg() %>">
-	<img src="/uploadClock/<%= clockList.get(2).getClockRealImg() %>">
-	
-	
+	<img src="../images/01.png">
+	<ul>
+		<c:forEach items="${clockList }" var ="clockDto">
+			<li><img src="${pageContext.request.contextPath}/uploadClock/${clockDto.clockRealImg}"></li>
+			<li>${clockDto.title}</li>
+			<li>${clockDto.depth}</li>
+			<li>${clockDto.price}</li>
+		</c:forEach>
+	</ul>
 	
 	
 <%@ include file="../include/footer.jsp"%>
