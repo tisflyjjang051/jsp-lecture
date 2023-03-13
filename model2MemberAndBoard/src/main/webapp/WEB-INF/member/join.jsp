@@ -92,8 +92,8 @@
 						$("#userID").attr("readonly", true);
 					} else {
 						alert("쓸 수 없는 아이디 입니다.");
-						$("#userID").val("");
-						$("#userID").focus();
+						$("#userId").val("");
+						$("#userId").focus();
 					}
 					
 				},
@@ -103,7 +103,7 @@
 			});
 		} else {
 			alert("아이디를 입력해 주세요.");
-			$("#userID").focus();
+			$("#userId").focus();
 		}
 		return false;
 	})
@@ -156,7 +156,7 @@
 								}
 
 								// 우편번호와 주소 정보를 해당 필드에 넣는다.
-								$("#userZipcode").val(data.zonecode);
+								$("#zipCode").val(data.zonecode);
 								$("#userAddr01").val(addr);
 								// 커서를 상세주소 필드로 이동한다.
 								$("userAddr02").focus();
@@ -166,24 +166,24 @@
 			});
 
 	$(".confirm").on("click", function() {
-		if ($("#userID").val() === "") {
+		if ($("#userId").val() === "") {
 			alert("아이디를 입력해주세요.");
-			$("#userID").focus();
+			$("#userId").focus();
 			return false;
 		}
-		if ($("#userPW").val() === "") {
+		if ($("#userPw").val() === "") {
 			alert("패스워드를 입력해주세요.");
-			$("#userPW").focus();
+			$("#userPw").focus();
 			return false;
 		}
-		if ($("#userPWConfirm").val() === "") {
+		if ($("#userPwConfirm").val() === "") {
 			alert("패스워드 확인을 해주세요.");
-			$("#userPWConfirm").focus();
+			$("#userPwConfirm").focus();
 			return false;
 		}
-		if ($("#userPWConfirm").val() !== $("#userPW").val()) {
+		if ($("#userPwConfirm").val() !== $("#userPw").val()) {
 			alert("패스워드가 같지 않습니다.");
-			$("#userPWConfirm").focus();
+			$("#userPwConfirm").focus();
 			return false;
 		}
 	});
