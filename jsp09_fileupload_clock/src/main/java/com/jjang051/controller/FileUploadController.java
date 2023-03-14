@@ -44,11 +44,11 @@ public class FileUploadController extends HttpServlet {
 		MultipartRequest mutipartRequest = 
 				new MultipartRequest(request, realPath, maxFileSize, 
 				encoding, fileRenamePolicy);
-		
-		
 		String title = mutipartRequest.getParameter("title");
-		String file = mutipartRequest.getParameter("file");
-		System.out.println(title+"==="+file);
+		String originalFile = mutipartRequest.getOriginalFileName("file");
+		String renameFile = mutipartRequest.getFilesystemName("file");
+		
+		System.out.println(title+"==="+originalFile+"==="+renameFile);
 	}
 
 }
