@@ -3534,3 +3534,12 @@ java.lang.IllegalStateException: The profile is currently in use.
 	at org.eclipse.equinox.internal.p2.ui.sdk.scheduler.migration.MigrationSupport.performMigration(MigrationSupport.java:62)
 	at org.eclipse.equinox.internal.p2.ui.sdk.scheduler.AutomaticUpdateScheduler$1.run(AutomaticUpdateScheduler.java:76)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jst.server.tomcat.core 4 0 2023-03-14 12:06:08.802
+!MESSAGE Publishing failed with multiple errors
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2023-03-14 12:06:08.803
+!MESSAGE Could not delete C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp09_fileupload_clock\WEB-INF\lib\cos-05Nov2002.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2023-03-14 12:06:08.803
+!MESSAGE Could not delete C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp09_fileupload_clock\WEB-INF\lib\jstl-1.2.jar. May be locked by another process.
+!SUBENTRY 1 org.eclipse.wst.server.core 4 0 2023-03-14 12:06:08.803
+!MESSAGE Could not delete C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsp09_fileupload_clock\WEB-INF\lib\ojdbc6.jar. May be locked by another process.

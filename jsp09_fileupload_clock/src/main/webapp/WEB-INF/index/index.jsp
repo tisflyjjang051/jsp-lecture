@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -47,20 +48,23 @@
       </div>
     </header>
     <main id="main">
-      <div class="section" id="clock01" style="background-image:url('')">
+    <c:forEach items="${clockList }" var = "clockDto">
+      <div class="section" id="clock01" 
+      style="background-image:url('${pageContext.request.contextPath}/upload/${clockDto.clockRealImg}')">
             <div class="info">
-                <p class="category">BIG BANG</p>
+                <p class="category">${clockDto.category }</p>
                 <p class="title">
-                    UNICO BERLUTI COLD BROWN
+                    ${clockDto.title }
                 </p>
                 <p class="depth">
-                    45MM
+                    ${clockDto.depth }MM
                 </p>
                 <p class="price">
-                    CHF 24,900
+                    CHF ${clockDto.price }
                 </p>
             </div>
         </div>
+    </c:forEach>
     </main>
     <div class="pagination">1/10</div>
     <div id="bgParticle"></div>
