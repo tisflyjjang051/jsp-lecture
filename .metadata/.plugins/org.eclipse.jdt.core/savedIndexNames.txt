@@ -18,6 +18,7 @@ INDEX VERSION 1.131+C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata
 2438514866.index
 1496371639.index
 192081947.index
+1375188162.index
 3076924927.index
 508370293.index
 3463398288.index

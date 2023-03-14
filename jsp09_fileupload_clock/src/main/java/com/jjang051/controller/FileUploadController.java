@@ -34,7 +34,8 @@ public class FileUploadController extends HttpServlet {
 		
 		String savePath = "upload";// 저장할 폴더 이름
 		ServletContext context = this.getServletContext();
-		String realPath =  context.getRealPath(savePath);
+		/* String realPath = context.getRealPath(savePath); */
+		String realPath = "C:\\upload";
 		
 		File dir = new File(realPath);
 		if(!dir.exists()) {

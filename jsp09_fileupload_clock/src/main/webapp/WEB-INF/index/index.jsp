@@ -50,7 +50,8 @@
     <main id="main">
     <c:forEach items="${clockList }" var = "clockDto">
       <div class="section" id="clock01" 
-      style="background-image:url('${pageContext.request.contextPath}/upload/${clockDto.clockRealImg}')">
+      style=
+      "background-image:url('${pageContext.request.contextPath}/upload/${clockDto.clockRealImg}')">
             <div class="info">
                 <p class="category">${clockDto.category }</p>
                 <p class="title">
@@ -81,7 +82,9 @@
       <div></div>
     </div>
     <script>
-      
+      new fullpage("#main",{
+        scrollBar:true
+      });
     </script>
   </body>
 </html>
