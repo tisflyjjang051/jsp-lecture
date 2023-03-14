@@ -47,7 +47,7 @@
       </div>
     </header>
     <main id="main">
-      <!-- <div class="section" id="clock01">
+      <div class="section" id="clock01" style="background-image:url('')">
             <div class="info">
                 <p class="category">BIG BANG</p>
                 <p class="title">
@@ -60,7 +60,7 @@
                     CHF 24,900
                 </p>
             </div>
-        </div> -->
+        </div>
     </main>
     <div class="pagination">1/10</div>
     <div id="bgParticle"></div>

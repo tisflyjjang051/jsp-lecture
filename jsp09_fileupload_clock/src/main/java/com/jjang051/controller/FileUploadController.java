@@ -47,7 +47,7 @@ public class FileUploadController extends HttpServlet {
 		String title = mutipartRequest.getParameter("title");
 		String originalFile = mutipartRequest.getOriginalFileName("file");
 		String renameFile = mutipartRequest.getFilesystemName("file");
-		
+		// db에 받은 값 입력하기....
 		System.out.println(title+"==="+originalFile+"==="+renameFile);
 	}
 
