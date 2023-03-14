@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jjang051.model.ClockDao;
+import com.jjang051.model.ClockDto;
+import com.jjang051.utils.ScriptWriter;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 @WebServlet("/board/fileUpload")
@@ -45,10 +48,27 @@ public class FileUploadController extends HttpServlet {
 				new MultipartRequest(request, realPath, maxFileSize, 
 				encoding, fileRenamePolicy);
 		String title = mutipartRequest.getParameter("title");
+		String category = mutipartRequest.getParameter("category");
+		int depth = Integer.parseInt( mutipartRequest.getParameter("depth"));
+		int price = Integer.parseInt( mutipartRequest.getParameter("price"));
 		String originalFile = mutipartRequest.getOriginalFileName("file");
 		String renameFile = mutipartRequest.getFilesystemName("file");
 		// db에 받은 값 입력하기....
+		ClockDto clockDto = new ClockDto();
+		clockDto.setTitle(title);
+		clockDto.setCategory(category);
+		clockDto.setDepth(depth);
+		clockDto.setPrice(price);
+		clockDto.setClockImg(originalFile);
+		clockDto.setClockRealImg(renameFile);
+		ClockDao clockDao = new ClockDao();
+		int result = clockDao.insertClock(clockDto);
 		System.out.println(title+"==="+originalFile+"==="+renameFile);
+		if(result>0) {
+			ScriptWriter.alertAndBack(response, "입력완료");
+		} else {
+			ScriptWriter.alertAndBack(response, "서버오류");
+		}
 	}
 
 }
