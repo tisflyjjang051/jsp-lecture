@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:set var="context" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,7 +28,7 @@
   <body>
     <header id="header">
       <h1 id="logo">
-        <a href=""><img src="images/hublot02/logo.png" alt="" /></a>
+        <a href=""><img src="../images/hublot02/logo.png" alt="" /></a>
       </h1>
       <nav id="gnb">
         <h2 class="hidden">global navigation</h2>
@@ -52,6 +53,7 @@
       <div class="section" id="clock01" 
       style=
       "background-image:url('${pageContext.request.contextPath}/upload/${clockDto.clockRealImg}')">
+      
             <div class="info">
                 <p class="category">${clockDto.category }</p>
                 <p class="title">

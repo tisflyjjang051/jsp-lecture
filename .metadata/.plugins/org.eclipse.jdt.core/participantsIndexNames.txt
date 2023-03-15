@@ -21,6 +21,8 @@ C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclips
 \test\src\main\java
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3314316152.index
 \jsp07_model02\src\main\java
+C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\208697428.index
+\jsp10_board_summernote\src\main\java
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3221395723.index
 \jsp08_file_upload\src\main\java
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3812796738.index
@@ -65,6 +67,8 @@ C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclips
 \jsp07_model02\src\main\java
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1971563936.index
 \jsp07_model02\src\main\java
+C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2018501382.index
+\jsp10_board_summernote\src\main\java
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2075774842.index
 \model2MemberAndBoard\src\main\java
 C:\Users\user-000\Desktop\2023-japan\jsp-lecture02\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3104942702.index

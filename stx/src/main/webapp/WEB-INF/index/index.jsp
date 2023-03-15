@@ -5,7 +5,7 @@
       <section class="main-visual">
         <h2 class="hidden">main visual area</h2>
         <ul class="swiper-wrapper">
-          <li class="main-visual--visual01 swiper-slide" style="background-image: url('${pageContext.request.context/업로드 폴더명}');"></li>
+          <li class="main-visual--visual01 swiper-slide" style="background-image: url('');"></li>
           <li class="main-visual--visual02 swiper-slide"></li>
           <li class="main-visual--visual03 swiper-slide"></li>
         </ul>
