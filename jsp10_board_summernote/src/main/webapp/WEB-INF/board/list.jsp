@@ -5,9 +5,9 @@
 <main>
 	<ul>
 		<c:forEach items="${boardList }" var="boardDto" varStatus="status" 
-		begin="0" end="3">
+		begin="0">
 		<li>
-			<span>${3 - status.index}</span>
+			<span>${status.index}</span>
 			<span>${boardDto.userName}</span>
 			<span><a href="../board/view?no=${boardDto.no}">제목입니다.</a></span>
 			<span>${boardDto.regDate}</span>

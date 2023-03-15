@@ -57,6 +57,7 @@
 			success:function(response) {
 				//위에 있는 url에서 응답을 기대하고 있음...
 				console.log(response);
+				$(editor).summernote("editor.insertImage",response.fileUrl);
 			},
 			error:function() {
 				console.log("파일 업로드 실패");
