@@ -30,7 +30,46 @@
 </main>
 <script>
 	$("#summernote").summernote({
-		height:300
+		height:300,
+		// 섬머노트에서 제공하는 이벤트 처리 하는 곳
+		callbacks:{
+			onImageUpload:function(files) {
+				console.log("이미지 첨부 됨");
+				console.log(files);
+				for(let i=0;i<files.length;i++){
+					uploadImage(files[i],this);
+				}
+			}
+		}
 	})
+	// form으로 데이터 보내기(get, post), queryString(주소창에 값 실어 보내기... get)
+	function uploadImage(file,editor) {
+		
+		const sendData = new FormData();  // key:value  <form><input type="file" name="uploadFile"></form>
+		sendData.append("uploadFile",file);
+		console.log(sendData);
+		$.ajax({
+			url:"../board/summernoteFileUpload",
+			type:"POST",
+			data:sendData,
+			contentType:false, // true=> enctype="x-www-form-urlencoded" 를 쓰지 않겠다.  false =>  multipart/form-data
+			processData:false,  // QueryString으로 날아가는걸 막겠다.
+			success:function(response) {
+				//위에 있는 url에서 응답을 기대하고 있음...
+				console.log(response);
+			},
+			error:function() {
+				console.log("파일 업로드 실패");
+			}
+		})
+	}
 </script>
 <%@ include file="../include/footer.jsp" %>
+
+
+
+
+
+
+
+
