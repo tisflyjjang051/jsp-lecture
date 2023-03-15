@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class BoardDao {
 	private String driver = "oracle.jdbc.OracleDriver";
@@ -53,6 +54,53 @@ public class BoardDao {
 			close();
 		}
 		return result;
+	}
+	public ArrayList<BoardDto> getAll() {
+		ArrayList<BoardDto> boardList = null;
+		
+		try {
+			getConnection();
+			String sql = "SELECT * FROM BOARD02";
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			boardList= new ArrayList<>();
+			while(rs.next()) {
+				BoardDto boardDto = new BoardDto();
+				boardDto.setNo(rs.getInt("no"));
+				boardDto.setUserName(rs.getString("userName"));
+				boardDto.setContents(rs.getString("contents"));
+				boardDto.setRegDate(rs.getString("regDate"));
+				boardList.add(boardDto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return boardList;
+	}
+
+	public BoardDto getSelectOne(int no) {
+		BoardDto boardDto = null;
+		try {
+			getConnection();
+			String sql = "SELECT * FROM BOARD02 WHERE NO = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				boardDto = new BoardDto();
+				boardDto.setNo(rs.getInt("no"));
+				boardDto.setUserName(rs.getString("userName"));
+				boardDto.setContents(rs.getString("contents"));
+				boardDto.setRegDate(rs.getString("regDate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return boardDto;
 	}
 }
 
