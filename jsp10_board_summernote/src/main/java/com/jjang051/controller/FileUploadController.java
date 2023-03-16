@@ -49,6 +49,8 @@ public class FileUploadController extends HttpServlet {
 		
 		
 		System.out.println(fileRealName);
+		System.out.println(context);
+		
 		
 		
 		String fileUploadedUrl =  
