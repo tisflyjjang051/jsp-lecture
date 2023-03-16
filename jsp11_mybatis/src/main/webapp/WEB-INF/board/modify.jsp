@@ -3,7 +3,7 @@
 <%@ include file="../include/header.jsp" %>
 
 <main>
-	<form class="form" action="../board/writeProcess" method="POST">
+	<form class="form" action="../board/modifyProcess" method="POST">
 		<table class="board">
 			<colgroup>
 				<col style="width:20%">
@@ -12,22 +12,21 @@
 			<tbody>
 				<tr>
 					<th>이름</th>
-					<td><input type="text" name="userName"></td>
+					<td><input type="text" name="userName" value="${boardDto.userName }"></td>
 				</tr>
 				<tr>
 					<th>제목</th>
-					<td><input type="text" name="subject"></td>
+					<td><input type="text" name="subject" value="${boardDto.subject }"></td>
 				</tr>
 				<tr>
 					<th>내용</th>
 					<td>
-						<textarea name="contents" id="summernote">
-							
-						</textarea>
+						<textarea name="contents" id="summernote" >${boardDto.contents}</textarea>
 					</td>
 				</tr>
 			</tbody>
 		</table>
+		<input type="hidden" name="no" value="${boardDto.no }">
 		<div class="btns">
 			<button class="btn confirm">확인</button>
 			<button class="btn reset" type="reset">취소</button>
@@ -70,14 +69,6 @@
 			}
 		})
 	}
-
+	 /* $("#summernote").summernote("code",  '${boardDto.contents}'); */
 </script>
 <%@ include file="../include/footer.jsp" %>
-
-
-
-
-
-
-
-

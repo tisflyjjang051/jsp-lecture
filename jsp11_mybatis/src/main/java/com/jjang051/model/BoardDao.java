@@ -49,8 +49,18 @@ public class BoardDao {
 		return result;
 		
 	}
-	
-	
+	public int updateBoard(BoardDto boardDto) {
+		int result = 0;
+		SqlSession sqlSession = MybatisConnectionFactory.getSqlSession();
+		result = sqlSession.update("updateBoard",boardDto);
+		if(result>0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		return result;
+	}
 }
 
 
