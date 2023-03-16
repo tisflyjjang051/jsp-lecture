@@ -6,18 +6,29 @@ public class BoardDto {
 	private String subject;
 	private String contents;
 	private String regDate;
+	private int hit;
+	
 
 	public BoardDto() {
 		super();
 	}
 
-	public BoardDto(int no, String userName, String subject, String contents, String regDate) {
+	public BoardDto(int no, String userName, String subject, String contents, String regDate, int hit) {
 		super();
 		this.no = no;
 		this.userName = userName;
 		this.subject = subject;
 		this.contents = contents;
 		this.regDate = regDate;
+		this.hit = hit;
+	}
+
+	public int getHit() {
+		return hit;
+	}
+
+	public void setHit(int hit) {
+		this.hit = hit;
 	}
 
 	public int getNo() {
