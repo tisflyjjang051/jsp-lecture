@@ -1,4 +1,4 @@
-package com.jjang051.model;
+package com.jjang051.mybatis;
 
 import java.io.IOException;
 import java.io.InputStream;

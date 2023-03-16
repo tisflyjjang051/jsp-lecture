@@ -10,6 +10,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.jjang051.mybatis.MybatisConnectionFactory;
+
 public class BoardDao {
 	public int insertBoard(BoardDto boardDto) {
 		int result = 0;
