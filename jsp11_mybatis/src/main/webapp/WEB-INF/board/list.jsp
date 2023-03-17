@@ -5,9 +5,9 @@
 <main>
 	<ul class="boardList">
 		<c:forEach items="${boardList }" var="boardDto" varStatus="status" 
-		begin="0">
+		begin="0" end="${total }">
 		<li>
-			<span class="no item">${status.index}</span>
+			<span class="no item">${total - (clickedPage-1)*listPerPage - status.index}</span>
 			<span class="userName item">${boardDto.userName}</span>
 			<span class="subject item"><a href="../board/view?no=${boardDto.no}">${boardDto.subject }</a></span>
 			<span class="date item">${boardDto.regDate}</span>
@@ -15,15 +15,23 @@
 		</c:forEach>
 	</ul>	
 	<ul class="pageBox">
-		<li><a href="">이전</a></li>
+		<c:if test="${pageStart!=1 }">
+		<li><a href="../board/list?page=${pageStart-pageBlock }"><span class="material-icons">
+chevron_left
+</span></a></li>
+		</c:if>
 		<c:forEach begin="${pageStart }" 
 		           end="${pageEnd }" 
 		           step="1" 
 		           varStatus="status" 
 		           var="page">
-			<li><a href="../board/list?page=${page }">${page }</a></li>
+			<li class="${clickedPage==page ? 'active':'' }"><a href="../board/list?page=${page }">${page }</a></li>
 		</c:forEach>
-		<li><a href="../board/list?page=${pageStart+pageBlock }">다음</a></li>
+		<c:if test="${pageLast != pageEnd }">
+		<li><a href="../board/list?page=${pageStart+pageBlock }"><span class="material-icons">
+chevron_right
+</span></a></li>
+		</c:if>
 		<!-- <li><a href="../board/list?page=1">1</a></li>
 		<li><a href="../board/list?page=2">2</a></li>
 		<li><a href="../board/list?page=3">3</a></li>
