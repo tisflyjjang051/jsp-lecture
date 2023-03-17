@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -33,6 +34,18 @@ public class BoardDao {
 		sqlSession.close();
 		return boardList;
 	}
+	
+	public List<BoardDto> getAllBoard02(int start,int end) {
+		HashMap<String,Integer> pageMap = new HashMap<>();
+		pageMap.put("start", start);
+		pageMap.put("end", end);
+		List<BoardDto> boardList = null;
+		SqlSession sqlSession = MybatisConnectionFactory.getSqlSession();
+		boardList = sqlSession.selectList("getAllBoard02",pageMap);
+		sqlSession.close();
+		return boardList;
+	}
+	
 	public BoardDto getSelectOne(int no) {
 		BoardDto boardDto = null;
 		SqlSession sqlSession = MybatisConnectionFactory.getSqlSession();

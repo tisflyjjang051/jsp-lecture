@@ -24,7 +24,7 @@ public class BoardListController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		BoardDao boardDao = new BoardDao();
-		ArrayList<BoardDto> boardList = (ArrayList<BoardDto>) boardDao.getAllBoard();
+		ArrayList<BoardDto> boardList = (ArrayList<BoardDto>) boardDao.getAllBoard02(20,30);
 		request.setAttribute("boardList", boardList);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/board/list.jsp");
 		dispatcher.forward(request, response);
