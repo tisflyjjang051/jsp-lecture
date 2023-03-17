@@ -16,6 +16,7 @@
 	</ul>	
 	<ul class="pageBox">
 		<c:if test="${pageStart!=1 }">
+		<li><a href="../board/list?page=1"><span class="material-icons"> first_page </span></a></li>
 		<li><a href="../board/list?page=${pageStart-pageBlock }"><span class="material-icons">
 chevron_left
 </span></a></li>
@@ -31,7 +32,9 @@ chevron_left
 		<li><a href="../board/list?page=${pageStart+pageBlock }"><span class="material-icons">
 chevron_right
 </span></a></li>
+<li><a href="../board/list?page=${pageLast}"><span class="material-icons"> last_page </span></a></li>
 		</c:if>
+		
 		<!-- <li><a href="../board/list?page=1">1</a></li>
 		<li><a href="../board/list?page=2">2</a></li>
 		<li><a href="../board/list?page=3">3</a></li>

@@ -16,8 +16,6 @@ import com.jjang051.model.BoardDto;
 @WebServlet("/board/list")
 public class BoardListController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    
     public BoardListController() {
         super();
     }
@@ -26,10 +24,15 @@ public class BoardListController extends HttpServlet {
 		BoardDao boardDao = new BoardDao();
 		int total = boardDao.getTotal();  // db에서 긁어온 글 전체 갯수
 		int listPerPage = 5;              // 한번에 보여질 글목록에 뿌려질 갯수
-		
 		int pageBlock = 4; 
 		// 아래쪽 아래쪽 페이지(pageBox)에 한번에 뿌려질 페이지 갯수;  이전 1/2/3 다음  |  이전 4/5/6 다음  
 		
+		
+		//total = 123
+		
+		//listPerPage = 5 내가 정하는거     (글목록)
+		//pageBlock =   3  내가 정하는 거   (밑에 페이지 한번에 보여지는 갯수) 
+		//pageLast  =  total / listPerPage
 		
 		
 		String tempClickedPage = request.getParameter("page");
@@ -39,12 +42,13 @@ public class BoardListController extends HttpServlet {
 		} else {
 			clickedPage = Integer.parseInt(tempClickedPage); 
 		}
-		
+		//1 ~ 5 / 6~10 / 11~15
 		int start = (clickedPage-1)*listPerPage+1;  // 글 목록시작  
 		int end = start+listPerPage-1;        // 글 목록 끝
 		
 		System.out.println("end==="+end);
 		
+		// 여기서 부터 pagination   
 		int pageStart = (int)((clickedPage-1)/pageBlock)*pageBlock+1;  
 		int pageEnd = pageStart+pageBlock-1;
 		int pageLast = 0;  // 아래쪽 페이지(pageBox)의 전체 갯수
