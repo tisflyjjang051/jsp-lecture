@@ -27,6 +27,15 @@ public class BoardDao {
 		sqlSession.close();
 		return result;
 	}
+	
+	public int getTotal() {
+		int result = 0;
+		SqlSession sqlSession = MybatisConnectionFactory.getSqlSession();
+		result = sqlSession.selectOne("getTotal");
+		sqlSession.close();
+		return result;
+	}
+	
 	public List<BoardDto> getAllBoard() {
 		List<BoardDto> boardList = null;
 		SqlSession sqlSession = MybatisConnectionFactory.getSqlSession();

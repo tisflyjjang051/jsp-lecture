@@ -14,6 +14,19 @@
 		</li>
 		</c:forEach>
 	</ul>	
+	<ul class="pageBox">
+		<c:forEach begin="${pageStart }" 
+		           end="${pageEnd }" 
+		           step="1" 
+		           varStatus="status" 
+		           var="page">
+			<li><a href="../board/list?page=${status.count }">${status.count }</a></li>
+		</c:forEach>
+		<!-- <li><a href="../board/list?page=1">1</a></li>
+		<li><a href="../board/list?page=2">2</a></li>
+		<li><a href="../board/list?page=3">3</a></li>
+		<li><a href="../board/list?page=4">4</a></li> -->
+	</ul>
 	<div class="btns">
 		<a href="../board/write" class="confirm">글쓰기</a>
 		<a href="../index" class="reset">홈</a>

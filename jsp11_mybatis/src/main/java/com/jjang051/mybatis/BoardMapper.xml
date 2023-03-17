@@ -3,6 +3,9 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jjang051.mybatis">
+	<select id="getTotal" resultType="Integer">
+		SELECT COUNT(*) AS TOTAL FROM BOARD03
+	</select>
 	<!-- select는 resultType과 parameterType을 가질 수 있다.  id는 dao의 메서드 명이랑 일치 시켜주면 된다.-->
 	<select id="getAllBoard" resultType="BoardDto">
 		SELECT * FROM BOARD03 ORDER BY NO
@@ -28,7 +31,6 @@
 									#{contents},
 									SYSDATE,
 									0
-									
 		)
 	</insert>
 	<update id="updateHit" parameterType="Integer">
